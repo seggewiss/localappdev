@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://raw.githubusercontent.com/shopware/platform/trunk/src/Core/Framework/App/Manifest/Schema/manifest-1.0.xsd">
+    <meta>
+        <name>localappdev</name>
+        <label>LocalAppDev</label>
+        <label lang="de-DE">LokaleAppEntwicklung</label>
+        <description>An app containing a server for local development</description>
+        <description lang="de-DE">Eine App mit Server für die lokale Entwicklung</description>
+        <author>seggewiss</author>
+        <copyright>(c) seggewiss</copyright>
+        <version>0.0.1</version>
+        <icon>Resources/plugin.png</icon>
+        <license>MIT</license>
+    </meta>
+
+    <setup>
+        <registrationUrl>http://localhost:8886/registration</registrationUrl>
+    </setup>
+</manifest>
