@@ -1,4 +1,4 @@
-const http = require('./src/http');
-const env = require('./env');
+import env from './env.js';
+import { startServer } from './src/http/index.js';
 
-http.startServer(env.port, env.host);
+startServer(env.port, env.host);

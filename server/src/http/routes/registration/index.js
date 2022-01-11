@@ -1,11 +1,11 @@
-const registrationService = require('../../../utils/registration-service');
-const env = require('../../../../env');
+import * as registrationService from '../../../utils/registration-service.js';
+import env from '../../../../env.js';
 
-function matches(req) {
+export function matches(req) {
   return req.url.match(/\/registration\?.*/);
 }
 
-function handle(req, res) {
+export function handle(req, res) {
   if(!registrationService.verifyRegistrationRequest(req)) {
     res.writeHead(400);
     res.end('Registration failed');
@@ -22,6 +22,3 @@ function handle(req, res) {
   res.writeHead(200);
   res.end(JSON.stringify(response));
 }
-
-exports.matches = matches;
-exports.handle = handle;

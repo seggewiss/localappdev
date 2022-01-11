@@ -1,8 +1,8 @@
-const http = require('http');
-const routes = require('./routes');
+import http from 'http';
+import routes from './routes/index.js';
 
 const server = http.createServer((req, res) => {
-  const matchingRoute = routes.routes.find(route => route.matches(req));
+  const matchingRoute = routes.find(route => route.matches(req));
   if (matchingRoute) {
     console.debug(`Handling ${req.method} ${req.url}`);
     matchingRoute.handle(req, res);
@@ -14,10 +14,8 @@ const server = http.createServer((req, res) => {
   res.end('Bad request');
 });
 
-function startServer(port, host) {
+export function startServer(port, host) {
   server.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`);
   });
 }
-
-exports.startServer = startServer

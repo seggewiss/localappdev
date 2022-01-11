@@ -1,0 +1,12 @@
+{
+  "name": "localappdev-server",
+  "version": "0.0.1",
+  "description": "Simple app server to allow app installation",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Seggewiss",
+  "license": "MIT",
+  "type": "module"
+}

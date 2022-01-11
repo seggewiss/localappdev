@@ -1,4 +1,4 @@
-const parameters = {
+export default {
   // GET specific parameters
   get: {},
 
@@ -13,5 +13,3 @@ const parameters = {
     timestamp: 'timestamp',
   },
 };
-
-exports.parameters = parameters;

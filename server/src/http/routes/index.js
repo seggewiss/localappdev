@@ -1,9 +1,7 @@
-const registration = require('./registration');
-const confirm = require('./confirm');
+import * as registration from './registration/index.js';
+import * as confirm from './confirm/index.js';
 
-const routes = [
+export default [
   registration,
   confirm,
 ];
-
-exports.routes = routes;
