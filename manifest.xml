@@ -15,5 +15,6 @@
 
     <setup>
         <registrationUrl>http://localhost:8886/registration</registrationUrl>
+        <secret>0107198229091993</secret>
     </setup>
 </manifest>
