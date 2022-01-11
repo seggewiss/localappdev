@@ -1,20 +1,26 @@
-const requestVerifier = require('../../../utils/request-verifier');
+const registrationService = require('../../../utils/registration-service');
+const env = require('../../../../env');
 
 function matches(req) {
   return req.url.match(/\/registration\?.*/);
 }
 
 function handle(req, res) {
-  // TODO: handle registration
-  if(!requestVerifier.verify(req)) {
+  if(!registrationService.verifyRegistrationRequest(req)) {
     res.writeHead(400);
     res.end('Registration failed');
 
     return
   }
 
+  const response = {
+    proof: registrationService.generateProof(req),
+    secret: env.appSecret,
+    'confirmation_url': `http://${env.host}:${env.port}/confirm`,
+  };
+
   res.writeHead(200);
-  res.end('Registration successfull');
+  res.end(JSON.stringify(response));
 }
 
 exports.matches = matches;
