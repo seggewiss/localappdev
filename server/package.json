@@ -4,9 +4,12 @@
   "description": "Simple app server to allow app installation",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "author": "Sebastian Seggewiss",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "jest": "^27.4.7"
+  }
 }

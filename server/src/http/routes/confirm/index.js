@@ -1,5 +1,5 @@
 export function matches(req) {
-    return req.url.match(/\/confirm/);
+    return !!req.url.match(/\/confirm/);
 }
 
 export function handle(req, res) {

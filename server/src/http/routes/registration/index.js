@@ -2,7 +2,7 @@ import * as registrationService from '../../../utils/registration-service.js';
 import env from '../../../../env.js';
 
 export function matches(req) {
-  return req.url.match(/\/registration\?.*/);
+  return !!req.url.match(/\/registration\?.*/);
 }
 
 export function handle(req, res) {
