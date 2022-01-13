@@ -14,6 +14,8 @@ export default {
   collectCoverageFrom: [
     "**/*.{js,jsx}",
     "!**/node_modules/**",
+    "!**/coverage/**",
+    "!**/jest.config.js",
   ],
 
   // The directory where Jest should output its coverage files
