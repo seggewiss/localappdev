@@ -4,6 +4,6 @@ export function matches(req) {
 
 export function handle(req, res) {
     // TODO: Save shop credentials to the database
-    res.writeHead(200)
-    res.end('')
+    res.writeHead(200);
+    res.end('');
 }

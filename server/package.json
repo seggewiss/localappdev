@@ -4,12 +4,15 @@
   "description": "Simple app server to allow app installation",
   "main": "index.js",
   "scripts": {
-    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js",
+    "lint": "eslint src",
+    "lint-fix": "eslint src --fix"
   },
   "author": "Sebastian Seggewiss",
   "license": "MIT",
   "type": "module",
   "devDependencies": {
+    "eslint": "^8.6.0",
     "jest": "^27.4.7"
   }
 }
