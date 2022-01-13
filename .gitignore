@@ -2,4 +2,4 @@
 yalc.lock
 .idea
 server/node_modules
-coverage/
+server/coverage/
