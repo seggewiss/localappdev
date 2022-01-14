@@ -1,4 +1,4 @@
-import http from 'http';
+import * as http from 'http';
 import routes from './routes/index.js';
 
 const server = http.createServer((req, res) => {
@@ -14,7 +14,7 @@ const server = http.createServer((req, res) => {
   res.end('Bad request');
 });
 
-export function startServer(port, host) {
+export function startServer(port: number, host: string) {
   server.listen(port, host, () => {
     console.log(`Server is running on http://${host}:${port}`);
   });

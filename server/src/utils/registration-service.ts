@@ -1,8 +1,9 @@
 import parameters from '../http/parameters.js';
 import env from '../../env.js';
-import crypto from 'crypto';
+import * as crypto from 'crypto';
+import * as http from "http";
 
-export function verifyRegistrationRequest(req) {
+export function verifyRegistrationRequest(req: http.IncomingMessage) {
   const url = new URL(`http://${env.host}:${env.port}/${req.url}`);
   const appSignature = req.headers[parameters.shared.shopwareAppSignature];
 
@@ -28,7 +29,7 @@ export function verifyRegistrationRequest(req) {
   return hash === appSignature;
 }
 
-export function generateProof(req) {
+export function generateProof(req: http.IncomingMessage) {
   const url = new URL(`http://${env.host}:${env.port}/${req.url}`);
   const message = `${url.searchParams.get(parameters.shared.shopId)}${url.searchParams.get(parameters.shared.shopUrl)}localappdev`;
 
