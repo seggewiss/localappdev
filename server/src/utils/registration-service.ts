@@ -1,5 +1,5 @@
-import parameters from '../http/parameters.js';
-import env from '../../env.js';
+import parameters from '../http/parameters';
+import env from '../../env';
 import * as crypto from 'crypto';
 import * as http from "http";
 

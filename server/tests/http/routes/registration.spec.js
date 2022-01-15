@@ -1,8 +1,8 @@
 import * as registration from '../../../src/http/routes/registration';
-import parameters from '../../../src/http/parameters.js';
+import parameters from '../../../src/http/parameters';
 import { jest } from '@jest/globals';
 import crypto from "crypto";
-import env from "../../../env.js";
+import env from "../../../env";
 
 describe('src/http/routes/registration/index.js', () => {
     it('should match /registration?shop-id=1234 as route', () => {

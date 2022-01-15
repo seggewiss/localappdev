@@ -23,8 +23,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.handle = exports.matches = void 0;
-const registrationService = __importStar(require("../../../utils/registration-service.js"));
-const env_js_1 = __importDefault(require("../../../../env.js"));
+const registrationService = __importStar(require("../../../utils/registration-service"));
+const env_1 = __importDefault(require("../../../../env"));
 function matches(req) {
     return req.url && !!req.url.match(/\/registration\?.*/);
 }
@@ -37,8 +37,8 @@ function handle(req, res) {
     }
     const response = {
         proof: registrationService.generateProof(req),
-        secret: env_js_1.default.appSecret,
-        'confirmation_url': `http://${env_js_1.default.host}:${env_js_1.default.port}/confirm`,
+        secret: env_1.default.appSecret,
+        'confirmation_url': `http://${env_1.default.host}:${env_1.default.port}/confirm`,
     };
     res.writeHead(200);
     res.end(JSON.stringify(response));

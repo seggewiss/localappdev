@@ -23,32 +23,32 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.generateProof = exports.verifyRegistrationRequest = void 0;
-const parameters_js_1 = __importDefault(require("../http/parameters.js"));
-const env_js_1 = __importDefault(require("../../env.js"));
+const parameters_1 = __importDefault(require("../http/parameters"));
+const env_1 = __importDefault(require("../../env"));
 const crypto = __importStar(require("crypto"));
 function verifyRegistrationRequest(req) {
-    const url = new URL(`http://${env_js_1.default.host}:${env_js_1.default.port}/${req.url}`);
-    const appSignature = req.headers[parameters_js_1.default.shared.shopwareAppSignature];
+    const url = new URL(`http://${env_1.default.host}:${env_1.default.port}/${req.url}`);
+    const appSignature = req.headers[parameters_1.default.shared.shopwareAppSignature];
     if (!appSignature) {
         return false;
     }
-    if (!url.searchParams.has(parameters_js_1.default.shared.shopId)) {
+    if (!url.searchParams.has(parameters_1.default.shared.shopId)) {
         return false;
     }
-    if (!url.searchParams.has(parameters_js_1.default.shared.shopUrl)) {
+    if (!url.searchParams.has(parameters_1.default.shared.shopUrl)) {
         return false;
     }
-    if (!url.searchParams.has(parameters_js_1.default.shared.timestamp)) {
+    if (!url.searchParams.has(parameters_1.default.shared.timestamp)) {
         return false;
     }
-    const message = `${parameters_js_1.default.shared.shopId}=${url.searchParams.get(parameters_js_1.default.shared.shopId)}&${parameters_js_1.default.shared.shopUrl}=${url.searchParams.get(parameters_js_1.default.shared.shopUrl)}&${parameters_js_1.default.shared.timestamp}=${url.searchParams.get(parameters_js_1.default.shared.timestamp)}`;
-    const hash = crypto.createHmac('sha256', env_js_1.default.appSecret).update(message).digest('hex');
+    const message = `${parameters_1.default.shared.shopId}=${url.searchParams.get(parameters_1.default.shared.shopId)}&${parameters_1.default.shared.shopUrl}=${url.searchParams.get(parameters_1.default.shared.shopUrl)}&${parameters_1.default.shared.timestamp}=${url.searchParams.get(parameters_1.default.shared.timestamp)}`;
+    const hash = crypto.createHmac('sha256', env_1.default.appSecret).update(message).digest('hex');
     return hash === appSignature;
 }
 exports.verifyRegistrationRequest = verifyRegistrationRequest;
 function generateProof(req) {
-    const url = new URL(`http://${env_js_1.default.host}:${env_js_1.default.port}/${req.url}`);
-    const message = `${url.searchParams.get(parameters_js_1.default.shared.shopId)}${url.searchParams.get(parameters_js_1.default.shared.shopUrl)}localappdev`;
-    return crypto.createHmac('sha256', env_js_1.default.appSecret).update(message).digest('hex');
+    const url = new URL(`http://${env_1.default.host}:${env_1.default.port}/${req.url}`);
+    const message = `${url.searchParams.get(parameters_1.default.shared.shopId)}${url.searchParams.get(parameters_1.default.shared.shopUrl)}localappdev`;
+    return crypto.createHmac('sha256', env_1.default.appSecret).update(message).digest('hex');
 }
 exports.generateProof = generateProof;

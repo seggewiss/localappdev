@@ -24,9 +24,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.startServer = void 0;
 const http = __importStar(require("http"));
-const index_js_1 = __importDefault(require("./routes/index.js"));
+const routes_1 = __importDefault(require("./routes"));
 const server = http.createServer((req, res) => {
-    const matchingRoute = index_js_1.default.find(route => route.matches(req));
+    const matchingRoute = routes_1.default.find(route => route.matches(req));
     if (matchingRoute) {
         console.debug(`Handling ${req.method} ${req.url}`);
         matchingRoute.handle(req, res);

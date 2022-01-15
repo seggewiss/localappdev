@@ -1,5 +1,5 @@
-import * as registrationService from '../../../utils/registration-service.js';
-import env from '../../../../env.js';
+import * as registrationService from '../../../utils/registration-service';
+import env from '../../../../env';
 import * as http from "http";
 
 export function matches(req: http.IncomingMessage) {

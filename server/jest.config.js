@@ -3,7 +3,7 @@
  * https://jestjs.io/docs/configuration
  */
 
-export default {
+const config = {
   // Automatically clear mock calls, instances and results before every test
   clearMocks: true,
 
@@ -12,10 +12,9 @@ export default {
 
   // An array of glob patterns indicating a set of files for which coverage information should be collected
   collectCoverageFrom: [
-    "**/*.{js,jsx}",
+    "**/*.ts",
     "!**/node_modules/**",
     "!**/coverage/**",
-    "!**/jest.config.js",
   ],
 
   // The directory where Jest should output its coverage files
@@ -27,3 +26,5 @@ export default {
   // The test environment that will be used for testing
   testEnvironment: "jest-environment-node",
 };
+
+module.exports = config;

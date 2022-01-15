@@ -1,5 +1,5 @@
 import * as http from 'http';
-import routes from './routes/index.js';
+import routes from './routes';
 
 const server = http.createServer((req, res) => {
   const matchingRoute = routes.find(route => route.matches(req));
