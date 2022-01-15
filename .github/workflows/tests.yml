@@ -5,9 +5,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Change directory into server
-        run: cd server
       - name: Install modules
+        working-directory: ./server
         run: npm ci
       - name: Run tests
-        run: npm run testg
+        working-directory: ./server
+        run: npm run test
