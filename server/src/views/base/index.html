@@ -9,9 +9,34 @@
 </head>
 <body>
 <script type="application/javascript">
-    sw.notification.dispatch({
-        message: 'foo bar'
-    });
+    if (sw.location.is(sw.location.MAIN_HIDDEN)) {
+        sw.notification.dispatch({
+            title: 'localappdev loaded',
+            message: 'Hello World',
+        });
+
+        sw.ui.tabs('sw-product-detail').addTabItem({
+            label: 'localappdev',
+            componentSectionId: 'example-product-detail-tab-content'
+        })
+
+        sw.ui.componentSection.add({
+            component: 'card',
+            positionId: 'example-product-detail-tab-content',
+            props: {
+                title: 'Localappdev',
+                locationId: 'product-card'
+            }
+        })
+    }
+
+    if (sw.location.is('product-card')) {
+        // You could do either something like this:
+        // window.document.body.innerHTML = '<h1 style="text-align: center">Hello from your product card</h1>';
+
+        // Or to keep your files seperated redirect to the corresponding route:
+        window.location.replace('/product-card');
+    }
 </script>
 </body>
 </html>
