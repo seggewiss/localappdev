@@ -8,7 +8,7 @@
         <description lang="de-DE">Eine App mit Server für die lokale Entwicklung</description>
         <author>seggewiss</author>
         <copyright>(c) seggewiss</copyright>
-        <version>0.0.1</version>
+        <version>0.0.2</version>
         <icon>Resources/plugin.png</icon>
         <license>MIT</license>
     </meta>
@@ -17,4 +17,8 @@
         <registrationUrl>http://localhost:8886/registration</registrationUrl>
         <secret>0107198229091993</secret>
     </setup>
+
+    <admin>
+        <base-app-url>http://localhost:8886/base</base-app-url>
+    </admin>
 </manifest>
